@@ -1,5 +1,7 @@
 Next:
 -Add dynamic loading stage
+  -initial load
+  -switching to-from search/all
 -Add error handling?
 -Add useEffect cleanup??? 
 
