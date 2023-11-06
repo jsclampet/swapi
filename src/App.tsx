@@ -90,6 +90,8 @@ const App = () => {
         >
           Clear Search
         </button>
+        <button className="mx-5">Prev</button>
+        <button>Next</button>
       </form>
       <Table characters={people} />
     </div>
