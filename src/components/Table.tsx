@@ -1,6 +1,6 @@
-interface Character {
+export interface Character {
   name: string;
-  birthdate: string;
+  birth_year: string;
   height: string;
   mass: string;
   homeworld: string;
@@ -27,11 +27,11 @@ const Table = ({ characters }: Props) => {
       <tbody>
         {characters &&
           characters.map(
-            ({ name, birthdate, height, mass, homeworld, species }) => {
+            ({ name, birth_year, height, mass, homeworld, species }) => {
               return (
                 <tr key={crypto.randomUUID()}>
                   <td>{name}</td>
-                  <td>{birthdate}</td>
+                  <td>{birth_year}</td>
                   <td>{height}</td>
                   <td>{mass}</td>
                   <td>{homeworld}</td>

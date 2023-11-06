@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Table from "./components/Table";
+import Table, { Character } from "./components/Table";
 
 const App = () => {
-  const [people, setPeople] = useState([]);
+  const [people, setPeople] = useState<Character[]>([]);
   const [userInput, setUserInput] = useState("");
   const [toggleSearch, setToggleSearch] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
@@ -17,10 +17,10 @@ const App = () => {
               `https://swapi.dev/api/people/?search=${userInput}`
             );
 
-      const peopleResultsArray = peopleRequest.data.results;
+      const peopleResultsArray: Character[] = peopleRequest.data.results;
 
       const homeworldsRequest = await Promise.all(
-        peopleResultsArray.map((person: string) =>
+        peopleResultsArray.map((person: Character) =>
           axios.get(`${person.homeworld}`)
         )
       );
@@ -30,12 +30,12 @@ const App = () => {
 
       const speciesRequest = await Promise.all(
         peopleResultsArray
-          .filter((person) => person.species.length)
-          .map((person) => {
+          .filter((person: Character) => person.species.length)
+          .map((person: Character) => {
             return axios.get(`${person.species[0]}`);
           })
       );
-      const speciesArray = peopleResultsArray.map((person, i) => {
+      const speciesArray = peopleResultsArray.map((person: Character) => {
         return person.species.length
           ? speciesRequest
               .map((specie) => specie.data)
@@ -43,22 +43,22 @@ const App = () => {
           : "unknown";
       });
 
-      const formatBirthDate = (person) => {
+      const formatBirthYear = (person: Character) => {
         return person.birth_year === "unknown"
           ? "unknown"
           : `${person.birth_year.split("BBY")[0]} BBY`;
       };
-      const formatHeight = (person) => {
+      const formatHeight = (person: Character) => {
         return person.height === "unknown" ? "unknown" : `${person.height} cm`;
       };
-      const formatMass = (person) => {
+      const formatMass = (person: Character) => {
         return person.mass === "unknown" ? "unknown" : `${person.mass} kg`;
       };
 
       const peopleArray = peopleResultsArray.map((person, i) => {
         return {
           name: person.name,
-          birthdate: formatBirthDate(person),
+          birth_year: formatBirthYear(person),
           height: formatHeight(person),
           mass: formatMass(person),
           homeworld: homeworldsArray[i],
