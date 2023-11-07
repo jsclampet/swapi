@@ -1,20 +1,24 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Table, { Character } from "./components/Table";
+import Table, { Character } from "./components/Table/Table.tsx";
+import "./App.css";
 
 const App = () => {
   const [people, setPeople] = useState<Character[]>([]);
   const [userInput, setUserInput] = useState("");
   const [toggleSearch, setToggleSearch] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
+  const [page, setPage] = useState(1);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     async function updatePeople() {
       const peopleRequest =
         isSearching === false
-          ? await axios.get("https://swapi.dev/api/people")
+          ? await axios.get(`https://swapi.py4e.com/api/people/?page=${page}`)
           : await axios.get(
-              `https://swapi.dev/api/people/?search=${userInput}`
+              `https://swapi.py4e.com/api/people/?search=${userInput}`
             );
 
       const peopleResultsArray: Character[] = peopleRequest.data.results;
@@ -66,12 +70,14 @@ const App = () => {
         };
       });
       setPeople(peopleArray);
+      setLoading(false);
     }
     updatePeople();
-  }, [toggleSearch]);
+  }, [toggleSearch, page]);
 
   return (
-    <div>
+    <div className="main-container">
+      <h1>StarWars Database</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -79,21 +85,48 @@ const App = () => {
           setToggleSearch(!toggleSearch);
         }}
       >
-        <input type="text" onChange={(e) => setUserInput(e.target.value)} />
-        <button type="submit">Search</button>
+        <input
+          type="text"
+          placeholder="Search for characters by name"
+          onChange={(e) => setUserInput(e.target.value)}
+          className="form-control input mx-2"
+        />
+        <button type="submit" className="btn btn-light">
+          Search
+        </button>
         <button
+          className={isSearching ? `btn btn-light ` : "hidden"}
           type="button"
           onClick={() => {
             setIsSearching(false);
             setToggleSearch(!toggleSearch);
           }}
         >
-          Clear Search
+          Clear
         </button>
-        <button className="mx-5">Prev</button>
-        <button>Next</button>
       </form>
-      <Table characters={people} />
+      {isLoading ? (
+        <h2>Loading, please wait!</h2>
+      ) : (
+        <>
+          <Table characters={people} />
+          <div className="pagination-div">
+            <button
+              onClick={() => setPage(page - 1)}
+              className={page > 1 ? "btn btn-outline-light" : "hidden"}
+            >
+              Prev
+            </button>
+            <div className="placeholder-div"></div>
+            <button
+              onClick={() => setPage(page + 1)}
+              className={page < 9 ? "btn btn-outline-light" : "hidden"}
+            >
+              Next
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

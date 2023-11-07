@@ -5,6 +5,14 @@ Next:
 -Add error handling?
 -Add useEffect cleanup??? 
 
+Wishful Thinking: 
+-Modularizing get functions to separate component (service component)
+-Adding caching
+  -Fetch stores data to local storage
+  -Fetch first looks for data in local 
+    -Yes? retrieves from local
+    -No? retrieves from API get requests
+
  ____________________
  
  #### Quick Ideas

@@ -1,0 +1,35 @@
+html {
+  background-color: black;
+}
+
+.main-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+}
+
+.main-container h1 {
+  color: #FFE919;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  justify-content: space-evenly;
+  width: 800px;
+  margin-bottom: 30px;
+}
+
+.pagination-div {
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 50px;
+}
+
+.hidden {
+  display: none;
+}
