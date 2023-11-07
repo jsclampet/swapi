@@ -22,6 +22,14 @@ form {
   margin-bottom: 30px;
 }
 
+.input {
+  margin-right: 20px;
+}
+
+.clear-btn {
+  margin-left: 20px;
+}
+
 .pagination-div {
   width: 800px;
   display: flex;

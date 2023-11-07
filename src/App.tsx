@@ -89,13 +89,13 @@ const App = () => {
           type="text"
           placeholder="Search for characters by name"
           onChange={(e) => setUserInput(e.target.value)}
-          className="form-control input mx-2"
+          className="form-control input"
         />
         <button type="submit" className="btn btn-light">
           Search
         </button>
         <button
-          className={isSearching ? `btn btn-light ` : "hidden"}
+          className={isSearching ? `btn btn-light clear-btn` : "hidden"}
           type="button"
           onClick={() => {
             setIsSearching(false);
@@ -106,7 +106,7 @@ const App = () => {
         </button>
       </form>
       {isLoading ? (
-        <h2>Loading, please wait!</h2>
+        <h2 className="text-light">Loading, please wait!</h2>
       ) : (
         <>
           <Table characters={people} />
