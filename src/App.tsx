@@ -77,7 +77,11 @@ const App = () => {
 
   return (
     <div className="main-container">
-      <h1>StarWars Database</h1>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Star_Wars_Yellow_Logo.svg"
+        alt="Star Wars Logo"
+      />
+
       <form
         onSubmit={(e) => {
           e.preventDefault();

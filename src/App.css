@@ -1,25 +1,23 @@
-html {
-  background-color: black;
-}
+
 
 .main-container {
-  margin-top: 50px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: black;
+  background: none;
 }
 
-.main-container h1 {
-  color: #FFE919;
+.main-container img {
   margin-bottom: 20px;
+  width: 320px;
 }
 
 form {
   display: flex;
   justify-content: space-evenly;
   width: 800px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .input {
