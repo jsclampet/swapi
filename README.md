@@ -7,6 +7,7 @@ View it [here]('')
 ![preview]('/../src/img/img_app_preview.png')
 
 ## Summary
+Users can search 
 <!-- Learned
 - How useState is updated ... synchronous, but delayed/async behaviour
 - Loading state , how/when to notify app loading status
