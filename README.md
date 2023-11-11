@@ -13,7 +13,7 @@ The primary aim behind creating this app was to gain more hands-on experience in
 
 One challenge I encountered was that the initial API response provided API endpoints instead of names for the 'homeworld' and 'species' fields. This required subsequent API calls based on the initial response data.
 
-I decided to make API requests in the async-await context, using Axios to handle API request, for a cleaner code structure and simpler sytax. I found the Promise.all method as the most efficient way to get the information since it enabled me to make concurrent API request ( per each character ) using less lines of code. 
+I decided to make API requests in the async-await context, using Axios to handle API request, for a cleaner code structure and simpler syntax. I found the Promise.all method as the most efficient way to get the information since it enabled me to make concurrent API request ( per each character ) using less lines of code. 
 
 Managing multiple API requests required a thorough understanding of the returned response bodies. I heavily relied on the Postman API platform to test multiple API calls to make sure the response properties were defined and existed in the correct scope.
 
