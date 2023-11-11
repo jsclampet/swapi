@@ -34,12 +34,12 @@ const App = () => {
 
       const speciesRequest = await Promise.all(
         peopleResultsArray
-          .filter((person: Character) => person.species.length)
-          .map((person: Character) => {
+          .filter((person) => person.species.length)
+          .map((person) => {
             return axios.get(`${person.species[0]}`);
           })
       );
-      const speciesArray = peopleResultsArray.map((person: Character) => {
+      const speciesArray = peopleResultsArray.map((person) => {
         return person.species.length
           ? speciesRequest
               .map((specie) => specie.data)
@@ -92,8 +92,15 @@ const App = () => {
         <input
           type="text"
           placeholder="Search for characters by name"
-          onChange={(e) => setUserInput(e.target.value)}
+          onChange={(e) => {
+            setUserInput(e.target.value);
+            if (e.target.value === "") {
+              setToggleSearch(!toggleSearch);
+              setIsSearching(false);
+            }
+          }}
           className="form-control input"
+          value={userInput}
         />
         <button type="submit" className="btn btn-light">
           Search
@@ -104,6 +111,7 @@ const App = () => {
           onClick={() => {
             setIsSearching(false);
             setToggleSearch(!toggleSearch);
+            setUserInput("");
           }}
         >
           Clear
