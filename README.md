@@ -4,7 +4,7 @@
 
 View it [here]('')
 
-![preview]('src/assets/img/img_app_preview.png')
+![preview](src/assets/img/img_app_preview.png)
 
 ## Summary
 This app allows users to navigate through a searchable table of all StarWars characters.
