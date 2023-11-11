@@ -7,28 +7,15 @@ View it [here]('')
 ![preview]('/../src/img/img_app_preview.png')
 
 ## Summary
-This app allows users to navigate and through a searchable table of all StarWars characters.
+This app allows users to navigate through a searchable table of all StarWars characters.
 
-My goal in creating this app was to get more experience with retreiving data from API's and displaying it to the front end.
+The primary aim behind creating this app was to gain more hands-on experience in retrieving data from APIs and presenting it on the front end.
 
+One challenge I encountered was that the initial API response provided API endpoints instead of names for the 'homeworld' and 'species' fields. This required subsequent API calls based on the initial response data.
 
-I opted for making my API request in the async-await context.
-<!-- I encounter 
+I decided to make API requests in the async-await context, using Axios to handle API request, for a cleaner code structure and simpler sytax. I found the Promise.all method as the most efficient way to get the information since it enabled me to make concurrent API request ( per each character ) using less lines of code. 
 
-use async/await syntax for a cleaner code structure.
-Used Axios library for handling API requests, as it provided a simpler syntax for working with APIs.
-
- 
-Use the data retreived from the initial API request, which includes URL's, to make subsequent API requests. 
-
-This is where the postman API tool shined. I was able to run multiple quick API call tests to see what object properties and were returned in the responses.  -->
-
-<!-- Learned
-- How useState is updated ... synchronous, but delayed/async behaviour
-- Loading state , how/when to notify app loading status
-- Promise.all 
-- Making subsequent API calls based on primary API call
-- Importance and ease of use/convenience of typing ( Character object, Array of type Character) -->
+Managing multiple API requests required a thorough understanding of the returned response bodies. I heavily relied on the Postman API platform to test multiple API calls to make sure the response properties were defined and existed in the correct scope.
 
 ## Author
 - John Clampet: FullStack Software Developer
