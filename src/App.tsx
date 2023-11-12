@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Table, { Character } from "./components/Table/Table.tsx";
 import "./App.css";
+import PaginationBar from "./components/PaginationBar/PaginationBar.tsx";
 
 const App = () => {
   const [people, setPeople] = useState<Character[]>([]);
@@ -122,21 +123,7 @@ const App = () => {
       ) : (
         <>
           <Table characters={people} />
-          <div className="pagination-div">
-            <button
-              onClick={() => setPage(page - 1)}
-              className={page > 1 ? "btn btn-outline-light" : "hidden"}
-            >
-              Prev
-            </button>
-            <div className="placeholder-div"></div>
-            <button
-              onClick={() => setPage(page + 1)}
-              className={page < 9 ? "btn btn-outline-light" : "hidden"}
-            >
-              Next
-            </button>
-          </div>
+          {!isSearching && <PaginationBar page={page} setPage={setPage} />}
         </>
       )}
     </div>
