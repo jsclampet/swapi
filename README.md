@@ -2,7 +2,7 @@
 
 *An app with a searchable table to display information on all StarWars characters using the https://swapi.py4e.com/api/ API. Written in React/TS, utilizing bootstrap and axios libraries.*
 
-View it [here](https://starwars-api-eosin.vercel.app/)
+View it [here](https://swapi-1kd.pages.dev/)
 
 ![preview](src/assets/img/img_app_preview.png)
 
