@@ -9,9 +9,9 @@ View it [here](https://swapi-1kd.pages.dev/)
 ## Summary
 This app allows users to navigate through a searchable table of all StarWars characters.
 
-The primary aim behind creating this app was to gain more hands-on experience in retrieving data from APIs and presenting it on the front end.
+The purpose for creating this app was to gain more hands-on experience in working with APIs by testing and troubleshooting tools (Postman), error handling, and retrieving data and presenting it on the front end.
 
-One challenge I encountered was that the initial API response provided API endpoints instead of names for the 'homeworld' and 'species' fields. This required subsequent API calls based on the initial response data.
+I encountered was that the initial server response from the API provided me with references to other API endpoints. Instead of giving me the direct values for 'homeworld' and 'species'. This required subsequent API calls based on the initial response data.
 
 I decided to make API requests in the async-await context, using Axios to handle API request, for a cleaner code structure and simpler syntax. I found the Promise.all method as the most efficient way to get the information since it enabled me to make concurrent API request ( per each character ) using less lines of code. 
 
